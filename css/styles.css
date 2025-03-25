@@ -1,5 +1,10 @@
-body{
-    background-color: wheat;
+body {
+  background-color: rgb(117, 95, 95);
+  display: flex; /* Enable Flexbox */
+  justify-content: left; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  margin-left: 30px; /* Remove default body margin */
 }
 
 #chessboard {
@@ -8,20 +13,25 @@ body{
     grid-template-rows: repeat(8, 70px);  /* 8 rows, each 40px wide */
     width: 560px; /* total width of the grid */
     height: 560px; /* total height of the grid */
-    border: 2px solid #000; /* Add a black border around the grid */
+    border: 2px solid #000000; /* Add a black border around the grid */
   }
   
   .square {
     width: 70px;
     height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px; /* Size of chess pieces */
+    font-weight: bold;
   }
   
   .black {
-    background-color: #000;
+    background-color: #6b6060;
   }
   
   .white {
-    background-color: #fff;
+    background-color: #c6c3c3;
   }
 
   
