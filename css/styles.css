@@ -1,0 +1,27 @@
+body{
+    background-color: wheat;
+}
+
+#chessboard {
+    display: grid; /* making a grid container */
+    grid-template-columns: repeat(8, 70px); /* 8 columns, each 40px wide */
+    grid-template-rows: repeat(8, 70px);  /* 8 rows, each 40px wide */
+    width: 560px; /* total width of the grid */
+    height: 560px; /* total height of the grid */
+    border: 2px solid #000; /* Add a black border around the grid */
+  }
+  
+  .square {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .black {
+    background-color: #000;
+  }
+  
+  .white {
+    background-color: #fff;
+  }
+
+  
