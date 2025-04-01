@@ -34,4 +34,26 @@ body {
     background-color: #c6c3c3;
   }
 
+  .button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add space above the button */
+    padding-left: 150px;
+  }
+  
+  .chess-button {
+    background-color: #3b3838; /* Green background */
+    color: white; /* White text */
+    font-size: 36px;
+    padding: 36px 72px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .chess-button:hover {
+    background-color: #515050; /* Darker gray on hover */
+  }
+
+  
   
