@@ -1,5 +1,7 @@
 ## About
 
+![chessboard](/images/chessboard.png)
+
 A chess game implemented in vanilla Javascript. This game includes -
 
 * Chess Board
