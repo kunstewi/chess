@@ -17,13 +17,13 @@ const squareSize = canvas.width / 8;
 
 const pieceImages = {}; // To store loaded piece images
 
-// Load piece images (you'll need to provide these image paths)
+// Load piece images
 function loadImages() {
     const pieces = ['bR', 'bN', 'bB', 'bQ', 'bK', 'bP', 'wR', 'wN', 'wB', 'wQ', 'wK', 'wP'];
     let loadedCount = 0;
     pieces.forEach(piece => {
         const img = new Image();
-        img.src = `images/${piece}.png`; // Adjust path as needed
+        img.src = `images/${piece}.png`; 
         img.onload = () => {
             pieceImages[piece] = img;
             loadedCount++;
