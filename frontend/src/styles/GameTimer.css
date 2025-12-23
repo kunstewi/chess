@@ -1,0 +1,70 @@
+.game-timer {
+    display: flex;
+    gap: 1rem;
+}
+
+.timer {
+    flex: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.timer.active {
+    border-color: #4a90e2;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(74, 144, 226, 0.6);
+    }
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timer-display {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #333;
+}
+
+.white-timer .timer-label {
+    color: #333;
+}
+
+.black-timer .timer-label {
+    color: #555;
+}
+
+.timer.active .timer-display {
+    color: #4a90e2;
+}
+
+@media (max-width: 768px) {
+    .game-timer {
+        flex-direction: column;
+    }
+
+    .timer-display {
+        font-size: 1.5rem;
+    }
+}

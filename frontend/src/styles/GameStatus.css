@@ -1,0 +1,194 @@
+.game-status {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.status-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+}
+
+.turn-indicator {
+    margin-bottom: 1.5rem;
+}
+
+.turn-badge {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.turn-badge.white {
+    background: #eeeed2;
+    color: #333;
+}
+
+.turn-badge.black {
+    background: #333;
+    color: white;
+}
+
+.check-indicator {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.player-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.player-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.player-badge.white {
+    background: #eeeed2;
+    color: #333;
+}
+
+.player-badge.black {
+    background: #333;
+    color: white;
+}
+
+.turn-status {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.captured-pieces {
+    margin-bottom: 1.5rem;
+}
+
+.captured-section {
+    margin-bottom: 1rem;
+}
+
+.captured-section h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 2rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.captured-piece {
+    font-size: 1.5rem;
+}
+
+.no-pieces {
+    color: #999;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.move-history {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 1rem;
+}
+
+.move-history h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.moves-list {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+.move-item {
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+    background: white;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    color: #333;
+}
+
+.move-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Scrollbar styling */
+.moves-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.moves-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.moves-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.moves-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    .game-status {
+        padding: 1rem;
+    }
+
+    .status-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .turn-badge {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
