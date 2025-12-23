@@ -1,7 +1,5 @@
 # Chess Game - Multiplayer
 
-![chessboard](/images/chessboard.png)
-
 A full-featured chess game with real-time multiplayer support, built with Node.js and React.
 
 ## Features
