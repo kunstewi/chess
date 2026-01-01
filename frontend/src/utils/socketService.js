@@ -2,7 +2,7 @@
 
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:300';
+const SOCKET_URL = 'http://localhost:3000';
 
 class SocketService {
     constructor() {
