@@ -77,7 +77,7 @@
 
 .time-control select:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #3a7d44;
 }
 
 .join-by-id {
@@ -96,7 +96,7 @@
 
 .join-by-id input:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #3a7d44;
 }
 
 .available-games {
@@ -117,7 +117,7 @@
 }
 
 .game-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #3a7d44;
     padding: 1.5rem;
     border-radius: 12px;
     display: flex;
@@ -150,13 +150,13 @@
 
 .btn-join {
     background: white;
-    color: #667eea;
+    color: #3a7d44;
     width: 100%;
 }
 
 .btn-join:hover {
     background: #f0f0f0;
-    color: #764ba2;
+    color: #2d5016;
 }
 
 .no-games {
