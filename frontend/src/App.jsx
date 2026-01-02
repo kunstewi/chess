@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import socketService from './utils/socketService';
+import LandingPage from './components/LandingPage';
 import MultiplayerLobby from './components/MultiplayerLobby';
 import ChessBoard from './components/ChessBoard';
 import GameTimer from './components/GameTimer';
@@ -7,6 +8,7 @@ import GameStatus from './components/GameStatus';
 import './styles/App.css';
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
   const [socket, setSocket] = useState(null);
   const [gameState, setGameState] = useState(null);
   const [playerColor, setPlayerColor] = useState(null);
@@ -119,96 +121,102 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>♟️ Chess Game</h1>
-      </header>
+    <>
+      {showLanding ? (
+        <LandingPage onGetStarted={() => setShowLanding(false)} />
+      ) : (
+        <div className="app">
+          <header className="app-header">
+            <h1>♟️ Chess Game</h1>
+          </header>
 
-      {error && (
-        <div className="error-banner">
-          {error}
-        </div>
-      )}
-
-      {gameStatus === 'lobby' && (
-        <MultiplayerLobby socket={socket} />
-      )}
-
-      {gameStatus === 'waiting' && (
-        <div className="waiting-screen">
-          <div className="waiting-content">
-            <h2>Waiting for opponent...</h2>
-            <div className="room-info">
-              <p>Room ID: <strong>{roomId}</strong></p>
-              <button className="btn btn-secondary" onClick={copyRoomId}>
-                Copy Room ID
-              </button>
+          {error && (
+            <div className="error-banner">
+              {error}
             </div>
-            <div className="spinner"></div>
-            <p>Share the Room ID with your opponent to join</p>
-            <button className="btn btn-text" onClick={handleNewGame}>
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
+          )}
 
-      {(gameStatus === 'playing' || gameStatus === 'finished') && gameState && (
-        <div className="game-screen">
-          <div className="game-container">
-            <div className="game-main">
-              <div className="game-info-top">
-                <div className="room-badge">Room: {roomId}</div>
-                {gameStatus === 'playing' && (
-                  <GameTimer gameState={gameState} timerUpdate={timerUpdate} />
-                )}
-              </div>
+          {gameStatus === 'lobby' && (
+            <MultiplayerLobby socket={socket} />
+          )}
 
-              <ChessBoard
-                gameState={gameState}
-                playerColor={playerColor}
-                onMove={handleMove}
-                disabled={gameStatus === 'finished'}
-              />
-
-              {gameStatus === 'finished' && gameOverInfo && (
-                <div className="game-over-overlay">
-                  <div className="game-over-content">
-                    <h2>Game Over!</h2>
-                    {gameOverInfo.winner === 'draw' ? (
-                      <p className="result">It's a draw!</p>
-                    ) : (
-                      <p className="result">
-                        {gameOverInfo.winner === playerColor ? 'You won!' : 'You lost!'}
-                      </p>
-                    )}
-                    <p className="reason">
-                      Reason: {gameOverInfo.reason}
-                    </p>
-                    <button className="btn btn-primary" onClick={handleNewGame}>
-                      New Game
-                    </button>
-                  </div>
+          {gameStatus === 'waiting' && (
+            <div className="waiting-screen">
+              <div className="waiting-content">
+                <h2>Waiting for opponent...</h2>
+                <div className="room-info">
+                  <p>Room ID: <strong>{roomId}</strong></p>
+                  <button className="btn btn-secondary" onClick={copyRoomId}>
+                    Copy Room ID
+                  </button>
                 </div>
-              )}
-            </div>
-
-            <div className="game-sidebar">
-              <GameStatus
-                gameState={gameState}
-                playerColor={playerColor}
-                inCheck={inCheck}
-              />
-              {gameStatus === 'playing' && (
-                <button className="btn btn-secondary resign-btn" onClick={handleNewGame}>
-                  Resign
+                <div className="spinner"></div>
+                <p>Share the Room ID with your opponent to join</p>
+                <button className="btn btn-text" onClick={handleNewGame}>
+                  Cancel
                 </button>
-              )}
+              </div>
             </div>
-          </div>
+          )}
+
+          {(gameStatus === 'playing' || gameStatus === 'finished') && gameState && (
+            <div className="game-screen">
+              <div className="game-container">
+                <div className="game-main">
+                  <div className="game-info-top">
+                    <div className="room-badge">Room: {roomId}</div>
+                    {gameStatus === 'playing' && (
+                      <GameTimer gameState={gameState} timerUpdate={timerUpdate} />
+                    )}
+                  </div>
+
+                  <ChessBoard
+                    gameState={gameState}
+                    playerColor={playerColor}
+                    onMove={handleMove}
+                    disabled={gameStatus === 'finished'}
+                  />
+
+                  {gameStatus === 'finished' && gameOverInfo && (
+                    <div className="game-over-overlay">
+                      <div className="game-over-content">
+                        <h2>Game Over!</h2>
+                        {gameOverInfo.winner === 'draw' ? (
+                          <p className="result">It's a draw!</p>
+                        ) : (
+                          <p className="result">
+                            {gameOverInfo.winner === playerColor ? 'You won!' : 'You lost!'}
+                          </p>
+                        )}
+                        <p className="reason">
+                          Reason: {gameOverInfo.reason}
+                        </p>
+                        <button className="btn btn-primary" onClick={handleNewGame}>
+                          New Game
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="game-sidebar">
+                  <GameStatus
+                    gameState={gameState}
+                    playerColor={playerColor}
+                    inCheck={inCheck}
+                  />
+                  {gameStatus === 'playing' && (
+                    <button className="btn btn-secondary resign-btn" onClick={handleNewGame}>
+                      Resign
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
